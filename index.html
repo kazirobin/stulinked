@@ -1,37 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StuLinked</title>
-  <!-- main css -->
-  <link rel="stylesheet" href="./css/style.css">
-  <!-- fav icon -->
-  <link rel="shortcut icon" href="./img/cap.png" type="image/x-icon">
-  <!-- font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-  <Header>
-    <div class="logo">
-      <i class="fa-solid fa-graduation-cap"></i>
-    </div>
-    <nav class="text-red-900">
-      <div class="logo">
-        <h1>StuLinked</h1>
-      </div>
-      Home
-Services
-Success Stories
-Student Resource Hub
-About
-Contact
-Start My Journey
-    </nav>
-  </Header>
-  <!-- main js -->
-  <script src="./js/script.js"></script>
-  <!-- tailwind css -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StuLinked</title>
+    <!-- main css -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- fav icon -->
+    <link rel="shortcut icon" href="./img/cap.png" type="image/x-icon" />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="container mx-auto">
+      <navbar class="text-red-900 flex  justify-between">
+        <!-- logo start-->
+        <div class="flex-col w-min">
+          <div class="mx-auto flex w-min">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <h1 class="font-bold">StuLinked</h1>
+        </div>
+        <!-- logo end-->
+         <nav class="flex gap-2">
+
+           <!-- nav link start -->
+           <ul class="flex gap-2 items-end ">
+             <li><a href="!#">Home</a></li>
+             <li><a href="!#">Services</a></li>
+             <li><a href="!#">Success Stories</a></li>
+             <li><a href="!#">Student Resource Hub</a></li>
+             <li><a href="!#">About</a></li>
+             <li><a href="!#">Contact</a></li>
+            </ul>
+            <!-- nav link end -->
+            <!-- action button -->
+            <button class="flex items-end "><a href="!#" class="bg-blue-600 text-white px-2 rounded-2xl">Start My Journey</a></button>
+            <!-- action button -->
+          </nav>
+      </navbar>
+    </header>
+    <!-- main js -->
+    <script src="./js/script.js"></script>
+    <!-- tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
 </html>
