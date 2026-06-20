@@ -3,52 +3,481 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StuLinked</title>
-    <!-- main css -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <!-- fav icon -->
-    <link rel="shortcut icon" href="./img/cap.png" type="image/x-icon" />
-    <!-- font awesome -->
+    <title>StuLinked · Tailwind</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Font Awesome 6 (free) -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-  </head>
-  <body>
-    <header class="container mx-auto">
-      <navbar class="text-red-900 flex  justify-between">
-        <!-- logo start-->
-        <div class="flex-col w-min">
-          <div class="mx-auto flex w-min">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </div>
-          <h1 class="font-bold">StuLinked</h1>
-        </div>
-        <!-- logo end-->
-         <nav class="flex gap-2">
-
-           <!-- nav link start -->
-           <ul class="flex gap-2 items-end ">
-             <li><a href="!#">Home</a></li>
-             <li><a href="!#">Services</a></li>
-             <li><a href="!#">Success Stories</a></li>
-             <li><a href="!#">Student Resource Hub</a></li>
-             <li><a href="!#">About</a></li>
-             <li><a href="!#">Contact</a></li>
-            </ul>
-            <!-- nav link end -->
-            <!-- action button -->
-            <button class="flex items-end "><a href="!#" class="bg-blue-600 text-white px-2 rounded-2xl">Start My Journey</a></button>
-            <!-- action button -->
-          </nav>
-      </navbar>
-    </header>
-    <!-- main js -->
-    <script src="./js/script.js"></script>
-    <!-- tailwind css -->
+    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* ----- smooth hover & transitions ----- */
+      .nav-link-border {
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .nav-link-border:hover {
+        color: #2563eb;
+        border-bottom-color: #2563eb;
+      }
+
+      /* dropdown menu */
+      .drop-menu {
+        transform-origin: top right;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .drop-menu.open {
+        display: flex;
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        pointer-events: auto;
+      }
+      .drop-menu:not(.open) {
+        opacity: 0;
+        transform: scale(0.96) translateY(-6px);
+        pointer-events: none;
+      }
+
+      /* hamburger animation */
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.3rem;
+        border-radius: 30px;
+        transition: background 0.2s;
+      }
+      .hamburger span {
+        display: block;
+        width: 26px;
+        height: 2.5px;
+        background: #0f172a;
+        border-radius: 20px;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* mobile nav - smooth height & opacity */
+      .mobile-nav {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition:
+          grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.35s ease;
+        opacity: 0;
+        overflow: hidden;
+        width: 100%;
+        border-top: 0px solid transparent;
+        margin-top: 0;
+        padding: 0 0;
+      }
+      .mobile-nav.open {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        border-top-width: 1px;
+        border-color: #e2e8f0;
+        margin-top: 0.75rem;
+        padding: 1rem 0 0.5rem;
+      }
+      .mobile-nav-inner {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+      }
+      .mobile-nav a {
+        transition:
+          color 0.2s,
+          transform 0.2s;
+        transform: translateY(0);
+      }
+      .mobile-nav a:hover {
+        color: #2563eb;
+        transform: translateY(-1px);
+      }
+      .mobile-nav .action-btn-mobile a {
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .mobile-nav .action-btn-mobile a:hover {
+        background: #1d4ed8;
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.35);
+      }
+
+      /* dropdown button icon rotate */
+      .drop-btn.active i {
+        transform: rotate(90deg);
+      }
+      .drop-btn i {
+        transition: transform 0.25s ease;
+      }
+
+      /* responsive visibility */
+      @media (max-width: 1024px) {
+       
+      }
+      @media (min-width: 1025px) {
+        .hamburger {
+          display: none !important;
+        }
+        .mobile-nav {
+          display: none !important;
+        }
+        .dropdown-wrapper {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="font-['Inter',system-ui,sans-serif] bg-slate-50 text-slate-900 flex flex-col min-h-screen"
+  >
+    <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- ====== NAVBAR ====== -->
+      <nav
+        class="navbar bg-white  shadow-sm   flex flex-wrap items-center justify-between px-4 sm:px-6 py-3 my-4 lg:my-6 transition-shadow hover:shadow-md"
+      >
+        <!-- logo -->
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-graduation-cap text-3xl text-slate-900"></i>
+          <h1 class="font-bold text-xl tracking-tight text-slate-900">
+            StuLinked
+          </h1>
+        </div>
+
+        <!-- right side: nav + hamburger -->
+        <div class="flex items-center gap-3 lg:gap-6">
+          <!-- desktop nav list -->
+          <ul
+            class="nav-list flex items-center text-sm font-medium"
+          >
+            <li><a href="!#" class="nav-link-border pb-1">Home</a></li>
+            <li><a href="!#" class="nav-link-border pb-1 padding-x">Services</a></li>
+            <li class=" lg:block">
+              <a href="!#" class="nav-link-border pb-1 drop-link">Success Stories</a>
+            </li>
+            <li class=" lg:block">
+              <a href="!#" class="nav-link-border pb-1 drop-link">Resource Hub</a>
+            </li>
+            <li><a href="!#" class="nav-link-border pb-1 drop-link">About</a></li>
+            <li><a href="!#" class="nav-link-border pb-1 drop-link">Contact</a></li>
+            <!-- dropdown (desktop only) -->
+            <li class="dropdown-wrapper relative">
+              <button
+                class="drop-btn text-slate-600 hover:bg-slate-100 rounded-full px-2 py-1 text-xl transition"
+                id="dropdownToggle"
+                aria-label="More"
+              >
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+              <ul
+                class="drop-menu flex-col absolute right-0 top-full mt-3 bg-white min-w-[200px] rounded-2xl shadow-xl border border-slate-200/80 py-2 z-50"
+                id="dropdownMenu"
+              >
+                <li>
+                  <a
+                    href="!#"
+                    class="block px-5 py-2 hover:bg-slate-50 hover:text-blue-600 hover:pl-7 transition-all border-l-2 border-transparent hover:border-blue-600"
+                    >Success Stories</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="!#"
+                    class="block px-5 py-2 hover:bg-slate-50 hover:text-blue-600 hover:pl-7 transition-all border-l-2 border-transparent hover:border-blue-600"
+                    >Resource Hub</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="!#"
+                    class="block px-5 py-2 hover:bg-slate-50 hover:text-blue-600 hover:pl-7 transition-all border-l-2 border-transparent hover:border-blue-600"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="!#"
+                    class="block px-5 py-2 hover:bg-slate-50 hover:text-blue-600 hover:pl-7 transition-all border-l-2 border-transparent hover:border-blue-600"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- action button (desktop) -->
+          <div class=" lg:block">
+            <a
+              href="!#"
+              class="bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-sm shadow-blue-200 hover:bg-blue-700 hover:-translate-y-0.5 transition-all"
+              >Start My Journey</a
+            >
+          </div>
+
+          <!-- HAMBURGER (mobile/tablet) -->
+          <button
+            class="hamburger lg:hidden"
+            id="hamburgerBtn"
+            aria-label="Menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+        <!-- mobile nav (smooth slide) -->
+        <div class="mobile-nav w-full" id="mobileNav">
+          <div class="mobile-nav-inner">
+            <a href="!#" class="font-medium text-slate-700 hover:text-blue-600"
+              >Home</a
+            >
+            <a href="!#" class="font-medium text-slate-700 hover:text-blue-600"
+              >Services</a
+            >
+            <a href="!#" class="font-medium text-slate-700 hover:text-blue-600"
+              >Success Stories</a
+            >
+            <a href="!#" class="font-medium text-slate-700 hover:text-blue-600"
+              >Resource Hub</a
+            >
+            <a href="!#" class="font-medium text-slate-700 hover:text-blue-600"
+              >About</a
+            >
+            <a href="!#" class="font-medium text-slate-700 hover:text-blue-600"
+              >Contact</a
+            >
+            <div class="action-btn-mobile mt-1 mb-1">
+              <a
+                href="!#"
+                class="bg-blue-600 text-white px-8 py-2.5 rounded-full font-semibold inline-block transition-all"
+                >Start My Journey</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ====== HERO BANNER ====== -->
+      <section
+        class="hero bg-gradient-to-br from-blue-50/80 to-white rounded-[48px] px-6 sm:px-10 py-12 sm:py-16 lg:py-20 my-6 border border-slate-200/70 shadow-sm flex flex-wrap items-center justify-between gap-8"
+      >
+        <div class="hero-content max-w-xl">
+          <h2
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+          >
+            Connect, <span class="text-blue-600">Grow</span> &
+            <span class="text-blue-600">Thrive</span>
+          </h2>
+          <p
+            class="text-slate-600 text-base sm:text-lg mt-4 mb-6 max-w-md leading-relaxed"
+          >
+            StuLinked brings students, mentors, and resources together. Start
+            your journey toward a brighter future today.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a
+              href="!#"
+              class="bg-blue-600 text-white px-7 py-3 rounded-full font-semibold shadow-md shadow-blue-200 hover:bg-blue-700 hover:-translate-y-1 transition-all"
+              >Get Started</a
+            >
+            <a
+              href="!#"
+              class="border border-slate-300 px-7 py-3 rounded-full font-medium text-slate-700 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50/50 transition-all"
+              >Learn More</a
+            >
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="bg-blue-50/70 p-6 sm:p-8 rounded-[60px] inline-block">
+            <i
+              class="fa-solid fa-users text-6xl sm:text-7xl lg:text-8xl text-blue-600/40"
+            ></i>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer
+      class="footer mt-auto bg-white rounded-t-[40px] border-t border-slate-200/70 px-4 sm:px-8 py-8 sm:py-10"
+    >
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10"
+      >
+        <!-- brand -->
+        <div class="brand">
+          <i class="fa-solid fa-graduation-cap text-3xl text-slate-900"></i>
+          <h3 class="font-bold text-xl tracking-tight mt-1">StuLinked</h3>
+          <p class="text-slate-500 text-sm max-w-[200px] mt-2">
+            Empowering students to connect, learn, and succeed.
+          </p>
+          <div class="flex gap-4 mt-4 text-slate-500">
+            <a href="#" class="hover:text-blue-600 transition"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+            <a href="#" class="hover:text-blue-600 transition"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+            <a href="#" class="hover:text-blue-600 transition"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" class="hover:text-blue-600 transition"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+        <!-- platform -->
+        <div>
+          <h4
+            class="font-semibold text-sm uppercase tracking-wider text-slate-800 mb-3"
+          >
+            Platform
+          </h4>
+          <ul class="space-y-1.5 text-sm text-slate-500">
+            <li><a href="!#" class="hover:text-blue-600">Home</a></li>
+            <li><a href="!#" class="hover:text-blue-600">Services</a></li>
+            <li>
+              <a href="!#" class="hover:text-blue-600">Success Stories</a>
+            </li>
+            <li><a href="!#" class="hover:text-blue-600">Resource Hub</a></li>
+          </ul>
+        </div>
+        <!-- company -->
+        <div>
+          <h4
+            class="font-semibold text-sm uppercase tracking-wider text-slate-800 mb-3"
+          >
+            Company
+          </h4>
+          <ul class="space-y-1.5 text-sm text-slate-500">
+            <li><a href="!#" class="hover:text-blue-600">About</a></li>
+            <li><a href="!#" class="hover:text-blue-600">Careers</a></li>
+            <li><a href="!#" class="hover:text-blue-600">Blog</a></li>
+            <li><a href="!#" class="hover:text-blue-600">Contact</a></li>
+          </ul>
+        </div>
+        <!-- support -->
+        <div>
+          <h4
+            class="font-semibold text-sm uppercase tracking-wider text-slate-800 mb-3"
+          >
+            Support
+          </h4>
+          <ul class="space-y-1.5 text-sm text-slate-500">
+            <li><a href="!#" class="hover:text-blue-600">Help Center</a></li>
+            <li><a href="!#" class="hover:text-blue-600">Privacy Policy</a></li>
+            <li>
+              <a href="!#" class="hover:text-blue-600">Terms of Service</a>
+            </li>
+            <li><a href="!#" class="hover:text-blue-600">Community</a></li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto border-t border-slate-200/70 mt-8 pt-6 text-center text-sm text-slate-400"
+      >
+        &copy; 2026 StuLinked. All rights reserved. &mdash; Made with
+        <i class="fa-regular fa-heart text-blue-500"></i>
+      </div>
+    </footer>
+
+    <!-- ====== JAVASCRIPT ====== -->
+    <script>
+      (function () {
+        // ----- HAMBURGER (smooth toggle) -----
+        const hamburger = document.getElementById("hamburgerBtn");
+        const mobileNav = document.getElementById("mobileNav");
+
+        if (hamburger && mobileNav) {
+          hamburger.addEventListener("click", function (e) {
+            e.stopPropagation();
+            this.classList.toggle("active");
+            mobileNav.classList.toggle("open");
+          });
+
+          // close mobile nav when a link is clicked (with smooth transition)
+          mobileNav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", function () {
+              hamburger.classList.remove("active");
+              mobileNav.classList.remove("open");
+            });
+          });
+        }
+
+        // ----- DESKTOP DROPDOWN -----
+        const toggleBtn = document.getElementById("dropdownToggle");
+        const dropMenu = document.getElementById("dropdownMenu");
+        if (toggleBtn && dropMenu) {
+          function toggleDropdown(e) {
+            e.stopPropagation();
+            dropMenu.classList.toggle("open");
+            toggleBtn.classList.toggle("active");
+          }
+          toggleBtn.addEventListener("click", toggleDropdown);
+
+          document.addEventListener("click", function (event) {
+            const inside =
+              toggleBtn.contains(event.target) ||
+              dropMenu.contains(event.target);
+            if (!inside) {
+              dropMenu.classList.remove("open");
+              toggleBtn.classList.remove("active");
+            }
+          });
+
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") {
+              dropMenu.classList.remove("open");
+              toggleBtn.classList.remove("active");
+            }
+          });
+
+          dropMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", function () {
+              dropMenu.classList.remove("open");
+              toggleBtn.classList.remove("active");
+            });
+          });
+          dropMenu.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+        }
+
+        // ----- close mobile nav on resize to desktop -----
+        window.addEventListener("resize", function () {
+          if (window.innerWidth >= 1024) {
+            if (mobileNav) mobileNav.classList.remove("open");
+            if (hamburger) hamburger.classList.remove("active");
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

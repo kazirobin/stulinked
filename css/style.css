@@ -18,3 +18,96 @@
 .color-orange {
   color: #fa8601;
 }
+/* nav bar start */
+navbar {
+  font-size: 20px;
+}
+.nav-link li a:hover {
+  border-bottom: 2px solid;
+  transition: all 0.3s ease-in;
+}
+/* 
+nav {
+  border: 3px solid; 
+   desktop links 
+  .nav-list {
+     border: 1px solid red; 
+  }
+}
+*/
+
+/* nav bar end */
+/* Responsive Styles */
+
+/* Extra Small Devices (phones, 599px and down) */
+@media only screen and (max-width: 599px) {
+  nav {
+    border-color: green;
+    .nav-list {
+      border: 1px solid red;
+      display: none;
+    }
+    .dropdown-wrapper {
+      display: none;
+    }
+  }
+}
+
+/* Small Devices (portrait tablets and large phones, 600px to 767px) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  nav {
+    border-color: red;
+    .nav-list {
+      border: 1px solid red;
+      display: none;
+    }
+    .dropdown-wrapper {
+      display: none;
+    }
+  }
+}
+
+/* Medium Devices (landscape tablets, 768px to 991px) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  nav {
+    border-color: blue;
+  }
+  .drop-link {
+    display: none;
+  }
+  .hamburger {
+    display: none;
+  }
+  .padding-x {
+    padding-inline: 5px;
+  }
+}
+
+/* Large Devices (laptops/desktops, 992px to 1199px) */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  nav {
+    border-color: gold;
+  }
+  .drop-link {
+    display: none;
+  }
+  .hamburger {
+    display: none;
+  }
+  .padding-x {
+    padding-inline: 5px;
+  }
+}
+
+/* Extra Large Devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  nav {
+    border-color: turquoise;
+    .dropdown-wrapper {
+      display: none;
+    }
+    .nav-list {
+      gap: 15px;
+    }
+  }
+}
