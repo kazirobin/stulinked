@@ -279,3 +279,7 @@ navbar {
     display: block;
   }
 }
+
+.shadow-left {
+  box-shadow: -10px 0 30px -10px rgba(0, 0, 0, 0.1);
+}
