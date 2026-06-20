@@ -1,56 +1,192 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
-/* 
-  font-family: 'Poppins', sans-serif; 
-  */
 
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 :root {
   --primary-color: #908d90;
   --secondary-color: #333333;
   --color-orange: #fa8601;
 }
+
 .color-orange {
   color: #fa8601;
 }
-/* nav bar start */
+
+/* ============================================
+   NAVBAR STYLES
+   ============================================ */
 navbar {
   font-size: 20px;
 }
+
 .nav-link li a:hover {
   border-bottom: 2px solid;
   transition: all 0.3s ease-in;
 }
-/* 
-nav {
-  border: 3px solid; 
-  desktop links 
-  .nav-list {
-    border: 1px solid red; 
-  }
+
+/* Nav link hover & transitions */
+.nav-link-border {
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
+
+.nav-link-border:hover {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+/* ============================================
+   DROPDOWN MENU
+   ============================================ */
+.drop-menu {
+  transform-origin: top right;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.drop-menu.open {
+  display: flex;
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.drop-menu:not(.open) {
+  opacity: 0;
+  transform: scale(0.96) translateY(-6px);
+  pointer-events: none;
+}
+
+/* Dropdown button icon rotate */
+.drop-btn i {
+  transition: transform 0.25s ease;
+}
+
+.drop-btn.active i {
+  transform: rotate(90deg);
+}
+
+/* ============================================
+   HAMBURGER MENU
+   ============================================ */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 30px;
+  transition: background 0.2s;
+}
+
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 2.5px;
+  background: #0f172a;
+  border-radius: 20px;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================
+   MOBILE NAV
+   ============================================ */
+.mobile-nav {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+  opacity: 0;
+  overflow: hidden;
+  width: 100%;
+  border-top: 0px solid transparent;
+  margin-top: 0;
+  padding: 0 0;
+}
+
+.mobile-nav.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  border-top-width: 1px;
+  border-color: #e2e8f0;
+  margin-top: 0.75rem;
+  padding: 1rem 0 0.5rem;
+}
+
+.mobile-nav-inner {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.mobile-nav a {
+  transition: color 0.2s, transform 0.2s;
+  transform: translateY(0);
+}
+
+.mobile-nav a:hover {
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+.mobile-nav .action-btn-mobile a {
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.mobile-nav .action-btn-mobile a:hover {
+  background: #1d4ed8;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.35);
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Extra Small Devices (phones, 599px and down) 
 */
-
-
-/* nav bar end */
-/* Responsive Styles */
-
-/* Extra Small Devices (phones, 599px and down) */
+/* nav{  border: 3px solid;}*/
 @media only screen and (max-width: 599px) {
   nav {
     border-color: green;
-    .nav-list {
+  }
+
+  .nav-list {
     border: 1px solid red;
+    display: none !important;
+  }
+  .cta-btn{
     display: none;
   }
-    .dropdown-wrapper {
-      display: none;
-    }
+
+  .dropdown-wrapper {
+    display: none;
   }
 }
 
@@ -58,13 +194,15 @@ nav {
 @media only screen and (min-width: 600px) and (max-width: 767px) {
   nav {
     border-color: red;
-    .nav-list {
-    border: 1px solid red;
-    display: none;
   }
-    .dropdown-wrapper {
-      display: none;
-    }
+
+  .nav-list {
+    border: 1px solid red;
+    display: none !important;
+  }
+
+  .dropdown-wrapper {
+    display: none;
   }
 }
 
@@ -73,13 +211,16 @@ nav {
   nav {
     border-color: blue;
   }
-  .drop-link{
+
+  .drop-link {
     display: none;
   }
-   .hamburger{
-    display: none;
+
+  .hamburger {
+    display: none !important;
   }
-  .padding-x{
+
+  .padding-x {
     padding-inline: 5px;
   }
 }
@@ -89,13 +230,16 @@ nav {
   nav {
     border-color: gold;
   }
-  .drop-link{
+
+  .drop-link {
     display: none;
   }
-  .hamburger{
-    display: none;
+
+  .hamburger {
+    display: none !important;
   }
-   .padding-x{
+
+  .padding-x {
     padding-inline: 5px;
   }
 }
@@ -104,11 +248,34 @@ nav {
 @media only screen and (min-width: 1200px) {
   nav {
     border-color: turquoise;
-    .dropdown-wrapper {
-      display: none;
-    }
-    .nav-list{
-      gap: 15px;
-    }
+  }
+
+  .dropdown-wrapper {
+    display: none !important;
+  }
+
+  .nav-list {
+    gap: 15px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE VISIBILITY (override)
+   ============================================ */
+@media (max-width: 1024px) {
+  /* Empty - placeholder for future styles */
+}
+
+@media (min-width: 1025px) {
+  .hamburger {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: none !important;
+  }
+
+  .dropdown-wrapper {
+    display: block;
   }
 }
