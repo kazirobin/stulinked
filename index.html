@@ -15,7 +15,146 @@
     />
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* ----- smooth hover & transitions ----- */
+      .nav-link-border {
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .nav-link-border:hover {
+        color: #2563eb;
+        border-bottom-color: #2563eb;
+      }
 
+      /* dropdown menu */
+      .drop-menu {
+        transform-origin: top right;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .drop-menu.open {
+        display: flex;
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        pointer-events: auto;
+      }
+      .drop-menu:not(.open) {
+        opacity: 0;
+        transform: scale(0.96) translateY(-6px);
+        pointer-events: none;
+      }
+
+      /* hamburger animation */
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.3rem;
+        border-radius: 30px;
+        transition: background 0.2s;
+      }
+      .hamburger span {
+        display: block;
+        width: 26px;
+        height: 2.5px;
+        background: #0f172a;
+        border-radius: 20px;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* mobile nav - smooth height & opacity */
+      .mobile-nav {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition:
+          grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.35s ease;
+        opacity: 0;
+        overflow: hidden;
+        width: 100%;
+        border-top: 0px solid transparent;
+        margin-top: 0;
+        padding: 0 0;
+      }
+      .mobile-nav.open {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        border-top-width: 1px;
+        border-color: #e2e8f0;
+        margin-top: 0.75rem;
+        padding: 1rem 0 0.5rem;
+      }
+      .mobile-nav-inner {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+      }
+      .mobile-nav a {
+        transition:
+          color 0.2s,
+          transform 0.2s;
+        transform: translateY(0);
+      }
+      .mobile-nav a:hover {
+        color: #2563eb;
+        transform: translateY(-1px);
+      }
+      .mobile-nav .action-btn-mobile a {
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .mobile-nav .action-btn-mobile a:hover {
+        background: #1d4ed8;
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.35);
+      }
+
+      /* dropdown button icon rotate */
+      .drop-btn.active i {
+        transform: rotate(90deg);
+      }
+      .drop-btn i {
+        transition: transform 0.25s ease;
+      }
+
+      /* responsive visibility */
+      @media (max-width: 1024px) {
+       
+      }
+      @media (min-width: 1025px) {
+        .hamburger {
+          display: none !important;
+        }
+        .mobile-nav {
+          display: none !important;
+        }
+        .dropdown-wrapper {
+          display: block;
+        }
+      }
+    </style>
   </head>
   <body
     class="font-['Inter',system-ui,sans-serif] bg-slate-50 text-slate-900 flex flex-col min-h-screen"
