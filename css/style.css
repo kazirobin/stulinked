@@ -246,7 +246,7 @@
   background-image: url("../img/hero.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom right;  /* 50% = center */
+  background-position: top right;  /* 50% = center */
 }
   .hero-left{
     width: 50%;
@@ -273,7 +273,7 @@
   background-image: url("../img/hero.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom right;  /* 50% = center */
+  background-position: top right;  /* 50% = center */
 }
   .hero-left{
     width: 50%;
