@@ -17,9 +17,9 @@
     <script src="./js/tailwind.js"></script>
   </head>
   <body
-    class="font-['Inter',system-ui,sans-serif] bg-slate-50 text-slate-900 flex flex-col min-h-screen"
+    class="font-['Inter',system-ui,sans-serif] text-slate-900 flex flex-col min-h-screen"
   >
-    <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 header">
       <!-- ====== NAVBAR ====== -->
       <nav
         class="navbar bg-white shadow-sm flex flex-wrap items-center justify-between px-4 sm:px-6 py-3 my-4 lg:my-6 transition-shadow hover:shadow-md"
@@ -153,10 +153,10 @@
       </nav>
 
       <!-- ====== HERO BANNER ====== -->
-      <section class="w-full block lg:flex lg:items-center">
+      <section class="w-full block lg:flex lg:items-center relative">
   
   <!-- Left Content -->
-  <div class="text-center lg:text-left lg:w-9/12">
+  <div class="text-center lg:text-left lg:w-9/12 p-20">
     <!-- Badge/Tag -->
     <h3 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 inline-block px-3 py-1 sm:px-4 sm:py-1.5 mb-3 sm:mb-4">
       UNLOCK YOUR CAREER
@@ -188,10 +188,10 @@
   </div>
 
   <!-- Arrow (hidden on mobile, visible on larger screens) -->
-  <div class="hidden h-lvh lg:flex items-end justify-center text-3xl sm:text-4xl text-blue-400 -mt-4">
+  <div class="hidden lg:flex  text-3xl sm:text-4xl text-blue-400 -mt-4 border-2 border-red-900">
 
     
-    <i class="fa-solid fa-angles-down lg:rotate-0 md:rotate-90 "></i>
+    <i class="fa-solid fa-angles-down lg:rotate-0 md:rotate-90 absolute bottom-10 left-2/4"></i>
   </div>
 
   <!-- Right Image -->

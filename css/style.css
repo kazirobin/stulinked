@@ -171,7 +171,7 @@ navbar {
 
 /* Extra Small Devices (phones, 599px and down) 
 */
-/* nav{  border: 3px solid;}*/
+nav{  border: 3px solid;}
 @media only screen and (max-width: 599px) {
   nav {
     border-color: green;
@@ -242,6 +242,18 @@ navbar {
   .padding-x {
     padding-inline: 5px;
   }
+.header {
+  background-image: url("../img/hero.jpeg");
+  background-size: 110%;
+  background-repeat: no-repeat;
+  background-position: bottom right;  /* 50% = center */
+}
+  .hero-left{
+    width: 50%;
+  }
+  .hero-left img{
+    display: none;
+  }
 }
 
 /* Extra Large Devices (large laptops and desktops, 1200px and up) */
@@ -256,6 +268,18 @@ navbar {
 
   .nav-list {
     gap: 15px;
+  }
+.header {
+  background-image: url("../img/hero.jpeg");
+  background-size: 110%;
+  background-repeat: no-repeat;
+  background-position: bottom right;  /* 50% = center */
+}
+  .hero-left{
+    width: 50%;
+  }
+  .hero-left img{
+    display: none;
   }
 }
 
