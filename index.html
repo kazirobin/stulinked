@@ -19,10 +19,10 @@
   <body
     class="font-['Inter',system-ui,sans-serif] text-slate-900 flex flex-col min-h-screen bg-[#fff]"
   >
-    <div class="container max-w-7xl mx-auto ">
+    <div class="container max-w-7xl mx-auto">
       <!-- ====== NAVBAR ====== -->
       <nav
-        class="navbar shadow-sm flex flex-wrap items-center justify-between p-4 sm:px-6   transition-shadow hover:shadow-md"
+        class="navbar shadow-sm flex flex-wrap items-center justify-between p-4 sm:px-6 transition-shadow hover:shadow-md"
       >
         <!-- logo -->
         <div class="flex items-center gap-2">
@@ -154,57 +154,313 @@
 
       <!-- ====== HERO BANNER ====== -->
       <section class="w-full block lg:flex lg:items-center relative header">
-  
-  <!-- Left Content -->
-  <div class="text-center lg:text-left lg:w-9/12 p-20">
-    <!-- Badge/Tag -->
-    <h3 class="text-xl md:text-2xl  font-semibold uppercase tracking-wider  inline-block ">
-      UNLOCK YOUR CAREER
-    </h3>
-    
-    <!-- Main Heading -->
-    <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-3 sm:mb-4">
-      Transform your <span class="text-blue-600">Linkedin©</span> Profile into a Job Magnet! 🚀
-    </h1>
-    
-    <!-- Subtitle -->
-    <h3 class="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed mb-5 sm:mb-6 md:mb-8 max-w-full lg:max-w-[90%] mx-auto lg:mx-0">
-      Specially designed optimization and guidance for students & grads. From profile review to job application strategies
-    </h3>
-    
-    <!-- Buttons -->
-    <div class="flex gap-3 sm:gap-4 justify-center lg:justify-start">
-      <button class=" xs:w-auto">
-        <a href="!#" class="block bg-blue-600 text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-full font-semibold text-xs sm:text-sm md:text-base hover:bg-blue-700 hover:-translate-y-0.5 transition-all shadow-md shadow-blue-200 text-center">
-          OPTIMIZE MY PROFILE
-        </a>
-      </button>
-      <button class=" xs:w-auto">
-        <a href="!#" class="block border-2 border-blue-600 text-blue-600 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-full font-semibold text-xs sm:text-sm md:text-base hover:bg-blue-50 hover:-translate-y-0.5 transition-all text-center">
-          FREE PROFILE AUDIT
-        </a>
-      </button>
+        <!-- Left Content -->
+        <div class="text-center lg:text-left lg:w-9/12 p-20">
+          <!-- Badge/Tag -->
+          <h3
+            class="text-xl md:text-2xl font-semibold uppercase tracking-wider inline-block"
+          >
+            UNLOCK YOUR CAREER
+          </h3>
+
+          <!-- Main Heading -->
+          <h1
+            class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-3 sm:mb-4"
+          >
+            Transform your <span class="text-blue-600">Linkedin©</span> Profile
+            into a Job Magnet! 🚀
+          </h1>
+
+          <!-- Subtitle -->
+          <h3
+            class="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed mb-5 sm:mb-6 md:mb-8 max-w-full lg:max-w-[90%] mx-auto lg:mx-0"
+          >
+            Specially designed optimization and guidance for students & grads.
+            From profile review to job application strategies
+          </h3>
+
+          <!-- Buttons -->
+          <div class="flex gap-3 sm:gap-4 justify-center lg:justify-start">
+            <button class="xs:w-auto">
+              <a
+                href="!#"
+                class="block bg-blue-600 text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-full font-semibold text-xs sm:text-sm md:text-base hover:bg-blue-700 hover:-translate-y-0.5 transition-all shadow-md shadow-blue-200 text-center"
+              >
+                OPTIMIZE MY PROFILE
+              </a>
+            </button>
+            <button class="xs:w-auto">
+              <a
+                href="!#"
+                class="block border-2 border-blue-600 text-blue-600 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-full font-semibold text-xs sm:text-sm md:text-base hover:bg-blue-50 hover:-translate-y-0.5 transition-all text-center"
+              >
+                FREE PROFILE AUDIT
+              </a>
+            </button>
+          </div>
+        </div>
+
+        <!-- Arrow (hidden on mobile, visible on larger screens) -->
+        <div class="hidden lg:flex text-xl -mt-4 border-2 border-red-900">
+          <i
+            class="fa-solid fa-angles-down lg:rotate-0 md:rotate-90 absolute bottom-5 left-2/4 animate-pulse"
+          ></i>
+        </div>
+
+        <!-- Right Image -->
+        <div class="hero-left">
+          <img
+            src="./img/hero-left.jpeg"
+            alt="LinkedIn profile optimization"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </section>
+      <!-- ====== HERO BANNER ====== -->
+       <div class="max-w-6xl mx-auto px-4 py-10">
+
+    <!-- Journey Section -->
+    <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-8">
+            Your Journey with StuLinked
+        </h2>
+
+        <div class="relative flex justify-between items-center max-w-4xl mx-auto">
+            <!-- Line -->
+            <div class="absolute top-4 left-0 w-full h-0.5 bg-gray-300"></div>
+
+            <!-- Step 1 -->
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-semibold">
+                    1
+                </div>
+                <p class="mt-2 text-sm font-medium">Your Journey</p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold">
+                    2
+                </div>
+                <p class="mt-2 text-sm font-medium">Success Stories</p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold">
+                    3
+                </div>
+                <p class="mt-2 text-sm font-medium">Student Resource Hub</p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold">
+                    4
+                </div>
+                <p class="mt-2 text-sm font-medium">About Contact</p>
+            </div>
+        </div>
     </div>
+
+    <!-- Value First Section -->
+    <div>
+        <h2 class="text-4xl font-bold text-center mb-8">
+            Value-First
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Card 1 -->
+            <div class="bg-blue-50 rounded-xl p-6 shadow-sm">
+                <div class="text-blue-600 text-4xl mb-4">
+                  <i class="fa-brands fa-linkedin-in"></i
+            >
+                </div>
+                <h3 class="text-xl font-bold mb-2">
+                    LinkedIn SEO
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Complete profile overhaul and keyword optimized LinkedIn SEO.
+                </p>
+                <p class="font-bold text-lg">
+                    +300% Profile Views
+                </p>
+                <p class="text-sm text-gray-500">
+                    +200% Profile Visits
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-green-50 rounded-xl p-6 shadow-sm">
+                <div class="text-green-600 text-4xl mb-4">
+                    📄
+                </div>
+                <h3 class="text-xl font-bold mb-2">
+                    Resume & CV
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Interview-ready and professional resume design.
+                </p>
+                <p class="font-bold text-lg">
+                    +300% Profile Views
+                </p>
+                <p class="text-sm text-gray-500">
+                    +200% Profile Visits
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-yellow-50 rounded-xl p-6 shadow-sm">
+                <div class="text-yellow-600 text-4xl mb-4">
+                    👥
+                </div>
+                <h3 class="text-xl font-bold mb-2">
+                    Networking & Interview Prep
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                    Enhance networking & interview preparation.
+                </p>
+                <p class="font-bold text-lg">
+                    +20% Profile Views
+                </p>
+                <p class="text-sm text-gray-500">
+                    +20% Profile Visits
+                </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-blue-900 text-white rounded-xl p-6 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        Interactive Quiz
+                    </h3>
+                    <p class="mb-4">
+                        Which StuLinked Path Is Right For You?
+                    </p>
+                    <p class="text-sm text-blue-100">
+                        Take our Mini Career Match Quiz & Find Out!
+                    </p>
+                </div>
+
+                <button class="mt-6 bg-white text-blue-900 font-semibold px-5 py-2 rounded-lg hover:bg-gray-100">
+                    Take Quiz
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<section class="max-w-7xl mx-auto px-6 py-16">
+
+  <!-- Heading -->
+  <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+    Success Stories
+  </h2>
+
+  <!-- First Story -->
+  <div class="grid lg:grid-cols-2 gap-10 items-center mb-20">
+
+    <!-- Image -->
+    <div>
+      <img
+        src="https://picsum.photos/600/700?random=1"
+        alt=""
+        class="rounded-3xl w-full h-[550px] object-cover"
+      />
+    </div>
+
+    <!-- Content -->
+    <div>
+
+      <!-- User -->
+      <div class="flex items-center gap-4 mb-8">
+        <img
+          src="https://picsum.photos/80?random=11"
+          class="w-14 h-14 rounded-full object-cover"
+          alt=""
+        />
+
+        <div>
+          <h4 class="font-bold text-lg">Alfiya D. (HR)</h4>
+          <p class="text-gray-500 text-sm">ABC Technologies</p>
+        </div>
+      </div>
+
+      <div class="text-7xl text-gray-200 font-serif leading-none">
+        "
+      </div>
+
+      <h3 class="text-4xl font-semibold leading-tight mt-4">
+        Got her dream job at
+        <span class="text-blue-600">[Company] 🎉</span>
+        after profile revamp
+      </h3>
+
+      <button
+        class="mt-10 border border-blue-600 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition"
+      >
+        Learn More →
+      </button>
+
+    </div>
+
   </div>
 
-  <!-- Arrow (hidden on mobile, visible on larger screens) -->
-  <div class="hidden lg:flex text-xl -mt-4 border-2 border-red-900">
+  <!-- Second Story -->
+  <div class="grid lg:grid-cols-2 gap-10 items-center">
 
-    
-    <i class="fa-solid fa-angles-down lg:rotate-0 md:rotate-90 absolute bottom-5 left-2/4 animate-pulse"></i>
-  </div>
+    <!-- Content -->
+    <div class="order-2 lg:order-1">
 
-  <!-- Right Image -->
-  <div class="hero-left">
-    <img 
-      src="./img/hero-left.jpeg" 
-      alt="LinkedIn profile optimization" 
-      class="w-full h-auto  object-cover"
-    />
+      <div class="flex items-center gap-4 mb-8">
+        <img
+          src="https://picsum.photos/80?random=22"
+          class="w-14 h-14 rounded-full object-cover"
+          alt=""
+        />
+
+        <div>
+          <h4 class="font-bold text-lg">Anita S. (SDE)</h4>
+          <p class="text-gray-500 text-sm">XYZ Company</p>
+        </div>
+      </div>
+
+      <div class="text-7xl text-gray-200 font-serif leading-none">
+        "
+      </div>
+
+      <h3 class="text-4xl font-semibold leading-tight mt-4">
+        Got her dream job at
+        <span class="text-blue-600">[Company] 🎉</span>
+        after profile revamp
+      </h3>
+
+      <button
+        class="mt-10 border border-blue-600 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition"
+      >
+        Learn More →
+      </button>
+
+    </div>
+
+    <!-- Image -->
+    <div class="order-1 lg:order-2">
+      <img
+        src="https://picsum.photos/600/700?random=2"
+        alt=""
+        class="rounded-3xl w-full h-[550px] object-cover"
+      />
+    </div>
+
   </div>
 
 </section>
+      <!-- ====== HERO BANNER ====== -->
+
     </div>
+
 
     <!-- ====== FOOTER ====== -->
     <footer
@@ -237,9 +493,7 @@
         </div>
         <!-- platform -->
         <div>
-          <h4
-            class="font-semibold text-sm uppercase tracking-wider mb-3"
-          >
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-3">
             Platform
           </h4>
           <ul class="space-y-1.5 text-sm text-white">
@@ -253,9 +507,7 @@
         </div>
         <!-- company -->
         <div>
-          <h4
-            class="font-semibold text-sm uppercase tracking-wider mb-3"
-          >
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-3">
             Company
           </h4>
           <ul class="space-y-1.5 text-sm text-white">
@@ -267,9 +519,7 @@
         </div>
         <!-- support -->
         <div>
-          <h4
-            class="font-semibold text-sm uppercase tracking-wider mb-3"
-          >
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-3">
             Support
           </h4>
           <ul class="space-y-1.5 text-sm text-white">
