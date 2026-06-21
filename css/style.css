@@ -24,8 +24,9 @@
 /* ============================================
    NAVBAR STYLES
    ============================================ */
-navbar {
+.navbar {
   font-size: 20px;
+  background-color: #C3D0D8;
 }
 
 .nav-link li a:hover {
@@ -244,7 +245,7 @@ navbar {
   }
 .header {
   background-image: url("../img/hero.png");
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom right;  /* 50% = center */
 }
@@ -271,7 +272,7 @@ navbar {
   }
 .header {
   background-image: url("../img/hero.png");
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom right;  /* 50% = center */
 }
