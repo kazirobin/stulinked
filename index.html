@@ -265,7 +265,65 @@
 </div>
 
 <script>
- 
+ let activeStep = 0;
+const totalSteps = 4;
+
+function setActiveStep(stepIndex) {
+  activeStep = stepIndex;
+
+  // Get all steps
+  const steps = document.querySelectorAll(".step");
+  const circles = document.querySelectorAll(".step-circle");
+  const texts = document.querySelectorAll(".step-text");
+  const progressFill = document.getElementById("progressFill");
+
+  // Update each step
+  steps.forEach((step, index) => {
+    const circle = circles[index];
+    const text = texts[index];
+
+    if (index <= activeStep) {
+      // Active or completed steps
+      circle.className =
+        "w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-semibold transition-all duration-300 step-circle";
+      text.className =
+        "mt-2 text-sm font-medium text-blue-600 transition-all duration-300 step-text";
+
+      // Add scale animation to circle
+      if (index === activeStep) {
+        circle.style.transform = "scale(1.15)";
+        setTimeout(() => {
+          circle.style.transform = "scale(1)";
+        }, 300);
+      }
+    } else {
+      // Inactive steps
+      circle.className =
+        "w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold transition-all duration-300 step-circle";
+      text.className =
+        "mt-2 text-sm font-medium text-gray-500 transition-all duration-300 step-text";
+    }
+  });
+
+  // Update progress line
+  const progressPercentage = (activeStep / (totalSteps - 1)) * 100;
+  progressFill.style.width = progressPercentage + "%";
+
+  // You can add your navigation logic here
+  console.log("Active Step:", activeStep + 1);
+}
+
+// Optional: Keyboard navigation
+document.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowRight" && activeStep < totalSteps - 1) {
+    setActiveStep(activeStep + 1);
+  } else if (e.key === "ArrowLeft" && activeStep > 0) {
+    setActiveStep(activeStep - 1);
+  }
+});
+
+// Initialize first step as active
+setActiveStep(0);
 </script>
 
         <!-- Value First Section -->
