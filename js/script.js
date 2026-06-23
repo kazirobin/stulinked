@@ -85,3 +85,40 @@
         behavior: 'smooth'
       });
     });
+
+    const counters = document.querySelectorAll(".counter");
+
+function animateCounter(counter) {
+  const target = Number(counter.dataset.target);
+  const duration = 2000;
+  const start = performance.now();
+
+  function update(currentTime) {
+    const progress = Math.min((currentTime - start) / duration, 1);
+    counter.textContent = Math.floor(progress * target);
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      counter.textContent = target;
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target); // Run only once
+      }
+    });
+  },
+  {
+    threshold: 0.5,
+  }
+);
+
+counters.forEach((counter) => observer.observe(counter));
