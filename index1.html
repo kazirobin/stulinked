@@ -19,10 +19,10 @@
   <body
     class="font-['Inter',system-ui,sans-serif] text-slate-900 flex flex-col min-h-screen bg-[#fff]"
   >
-    <div class="container max-w-7xl mx-auto mt-16">
+    <div class="container max-w-7xl mx-auto">
       <!-- ====== NAVBAR ====== -->
       <nav
-        class="navbar container mx-auto fixed top-0 left-0 right-0 z-50 bg-white bg-[#fff] shadow-sm flex flex-wrap items-center justify-between p-4 sm:px-6 transition-shadow hover:shadow-md"
+        class="navbar shadow-sm flex flex-wrap items-center justify-between p-4 sm:px-6 transition-shadow hover:shadow-md"
       >
         <!-- logo -->
         <div class="flex items-center gap-2">
@@ -33,7 +33,7 @@
         </div>
 
         <!-- right side: nav + hamburger -->
-        <div class="flex items-center gap-3 lg:gap-6 bg-[#fff]">
+        <div class="flex items-center gap-3 lg:gap-6">
           <!-- desktop nav list -->
           <ul class="nav-list flex items-center text-sm font-medium">
             <li><a href="!#" class="nav-link-border pb-1">Home</a></li>
@@ -102,7 +102,7 @@
           </ul>
 
           <!-- action button (desktop) -->
-          <div class="cta-btn lg:block bg-[#fff]">
+          <div class="cta-btn lg:block">
             <a
               href="!#"
               class="bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-sm shadow-blue-200 hover:bg-blue-700 hover:-translate-y-0.5 transition-all"
@@ -112,7 +112,7 @@
 
           <!-- HAMBURGER (mobile/tablet) -->
           <button
-            class="hamburger lg:hidden bg-[#fff]"
+            class="hamburger lg:hidden"
             id="hamburgerBtn"
             aria-label="Menu"
           >
@@ -121,7 +121,7 @@
         </div>
 
         <!-- mobile nav (smooth slide) -->
-        <div class="mobile-nav w-full bg-[#fff]" id="mobileNav">
+        <div class="mobile-nav w-full" id="mobileNav">
           <div class="mobile-nav-inner">
             <a href="!#" class="font-medium text-slate-700 hover:text-blue-300"
               >Home</a
@@ -144,7 +144,7 @@
             <div class="action-btn-mobile mt-1 mb-1">
               <a
                 href="!#"
-                class="bg-blue-600 hover:text-white text-white px-8 py-2.5 rounded-full font-semibold inline-block transition-all"
+                class="bg-blue-600 text-white px-8 py-2.5 rounded-full font-semibold inline-block transition-all"
                 >Start My Journey</a
               >
             </div>
@@ -153,9 +153,7 @@
       </nav>
 
       <!-- ====== HERO BANNER ====== -->
-      <section
-        class="w-full block lg:flex lg:items-center relative header pb-24"
-      >
+      <section class="w-full block lg:flex lg:items-center relative header">
         <!-- Left Content -->
         <div class="text-center lg:text-left lg:w-9/12 p-20">
           <!-- Badge/Tag -->
@@ -167,7 +165,7 @@
 
           <!-- Main Heading -->
           <h1
-            class="text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-3 sm:mb-4"
+            class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-3 sm:mb-4"
           >
             Transform your <span class="text-blue-600">Linkedin©</span> Profile
             into a Job Magnet! 🚀
@@ -214,7 +212,7 @@
           <img
             src="./img/hero-left.jpeg"
             alt="LinkedIn profile optimization"
-            class="w-full h-max object-cover"
+            class="w-full h-auto object-cover"
           />
         </div>
       </section>
@@ -278,9 +276,7 @@
         <div>
           <h2 class="text-4xl font-bold text-center mb-8">Value-First</h2>
 
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto"
-          >
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Card 1 -->
             <div class="bg-blue-50 rounded-xl p-6 shadow-sm">
               <div class="text-blue-600 text-4xl mb-4">
@@ -290,17 +286,8 @@
               <p class="text-gray-600 text-sm mb-4">
                 Complete profile overhaul and keyword optimized LinkedIn SEO.
               </p>
-              <p class="font-bold text-lg">
-                +<span class="counter" data-target="300">0</span>% Profile Views
-              </p>
-              <!-- Basic Tailwind progress bar -->
-              <div class="w-full my-2 bg-gray-200 rounded-full h-2">
-                <div
-                  class="bg-blue-600 h-2 rounded-full"
-                  style="width: 90%"
-                ></div>
-              </div>
-
+              <p class="font-bold text-lg">+<span class="counter" data-target="300">0</span>% Profile Views</p>
+              <p class="text-sm text-gray-500">+200% Profile Visits</p>
               <p class="text-sm text-gray-500">
                 +<span class="counter" data-target="200">0</span>% Profile
                 Visits
@@ -314,22 +301,10 @@
               </div>
               <h3 class="text-xl font-bold mb-2">Resume & CV</h3>
               <p class="text-gray-600 text-sm mb-4">
-                Interview-ready and professional resume and design.
+                Interview-ready and professional resume design.
               </p>
-              <p class="font-bold text-lg">
-                +<span class="counter" data-target="300">0</span>% Profile Views
-              </p>
-               <!-- Basic Tailwind progress bar -->
-              <div class="w-full my-2 bg-gray-200 rounded-full h-2">
-                <div
-                  class="bg-green-600 h-2 rounded-full"
-                  style="width: 90%"
-                ></div>
-              </div>
-              <p class="text-sm text-gray-500">
-                +<span class="counter" data-target="200">0</span>% Profile
-                Visits
-              </p>
+              <p class="font-bold text-lg">+<span class="counter" data-target="300">0</span>% Profile Views</p>
+              <p class="text-sm text-gray-500">+<span class="counter" data-target="200">0</span>% Profile Visits</p>
             </div>
 
             <!-- Card 3 -->
@@ -343,19 +318,8 @@
               <p class="text-gray-600 text-sm mb-4">
                 Enhance networking & interview preparation.
               </p>
-              <p class="font-bold text-lg">
-                +<span class="counter" data-target="20">0</span>% Profile Views
-              </p>
-               <!-- Basic Tailwind progress bar -->
-              <div class="w-full my-2 bg-gray-200 rounded-full h-2">
-                <div
-                  class="bg-yellow-600 h-2 rounded-full"
-                  style="width: 90%"
-                ></div>
-              </div>
-              <p class="text-sm text-gray-500">
-                +<span class="counter" data-target="20">0</span>% Profile Visits
-              </p>
+              <p class="font-bold text-lg">+<span class="counter" data-target="20">0</span>% Profile Views</p>
+              <p class="text-sm text-gray-500">+<span class="counter" data-target="20">0</span>% Profile Visits</p>
             </div>
 
             <!-- Card 4 -->
@@ -379,52 +343,51 @@
           </div>
         </div>
       </div>
-
-      <section class="max-w-7xl mx-auto px-6 py-12 lg:py-16">
+      <section class="max-w-7xl mx-auto px-6 py-16">
         <!-- Heading -->
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 lg:mb-14">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
           Success Stories
         </h2>
 
         <!-- First Story -->
-        <div
-          class="flex gap-10 items-center justify-center mb-14 lg:mb-16 border-2"
-        >
+        <div class="grid lg:grid-cols-2 gap-10 items-center mb-20">
           <!-- Image -->
           <div>
             <img
               src="./img/man1.jpeg"
-              alt="Alfiya"
-              class="mx-auto h-[340px] md:h-[420px] lg:h-[460px] rounded-3xl object-cover object-top shadow-lg"
+              alt=""
+              class="rounded-3xl w-full h-[550px] object-cover object-top"
             />
           </div>
+
           <!-- Content -->
-          <div class="max-w-xl">
+          <div>
             <!-- User -->
-            <div class="flex items-center gap-4 mb-5">
+            <div class="flex items-center gap-4 mb-8">
               <img
                 src="./img/man1.jpeg"
                 class="w-14 h-14 rounded-full object-cover object-top"
                 alt=""
               />
+
               <div>
                 <h4 class="font-bold text-lg">Alfiya D. (HR)</h4>
                 <p class="text-gray-500 text-sm">ABC Technologies</p>
               </div>
             </div>
-            <!-- Quote -->
-            <div class="text-5xl text-gray-200 leading-none">
+
+            <div class="text-7xl text-gray-200 font-serif leading-none">
               <i class="fa-solid fa-quote-left"></i>
             </div>
-            <!-- Title -->
-            <h3 class="text-3xl lg:text-4xl font-semibold leading-snug mt-3">
+
+            <h3 class="text-4xl font-semibold leading-tight mt-4">
               Got her dream job at
               <span class="text-blue-600">[Company] 🎉</span>
               after profile revamp
             </h3>
-            <!-- Button -->
+
             <button
-              class="mt-7 border border-blue-600 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition duration-300"
+              class="mt-10 border border-blue-600 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition"
             >
               Learn More →
             </button>
@@ -432,46 +395,45 @@
         </div>
 
         <!-- Second Story -->
-        <div
-          class="flex gap-4 items-center justify-center mb-14 lg:mb-16 border-2"
-        >
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
           <!-- Content -->
-          <div class="max-w-xl">
-            <!-- User -->
-            <div class="flex items-center gap-4 mb-5">
+          <div class="order-2 lg:order-1">
+            <div class="flex items-center gap-4 mb-8">
               <img
                 src="./img/woman1.jpeg"
-                class="w-14 h-14 rounded-full object-cover object-top"
+                class="w-14 h-14 rounded-full object-cover"
                 alt=""
               />
+
               <div>
-                <h4 class="font-bold text-lg">Alfiya D. (HR)</h4>
-                <p class="text-gray-500 text-sm">ABC Technologies</p>
+                <h4 class="font-bold text-lg">Anita S. (SDE)</h4>
+                <p class="text-gray-500 text-sm">XYZ Company</p>
               </div>
             </div>
-            <!-- Quote -->
-            <div class="text-5xl text-gray-200 leading-none">
+
+            <div class="text-7xl text-gray-200 font-serif leading-none">
               <i class="fa-solid fa-quote-left"></i>
             </div>
-            <!-- Title -->
-            <h3 class="text-3xl lg:text-4xl font-semibold leading-snug mt-3">
+
+            <h3 class="text-4xl font-semibold leading-tight mt-4">
               Got her dream job at
               <span class="text-blue-600">[Company] 🎉</span>
               after profile revamp
             </h3>
-            <!-- Button -->
+
             <button
-              class="mt-7 border border-blue-600 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition duration-300"
+              class="mt-10 border border-blue-600 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition"
             >
               Learn More →
             </button>
           </div>
+
           <!-- Image -->
-          <div>
+          <div class="order-1 lg:order-2">
             <img
               src="./img/woman1.jpeg"
-              alt="Alfiya"
-              class="mx-auto h-[340px] md:h-[420px] lg:h-[460px] rounded-3xl object-cover object-top shadow-lg"
+              alt=""
+              class="rounded-3xl w-full h-[550px] object-cover object-top"
             />
           </div>
         </div>
@@ -695,7 +657,7 @@
           </form>
         </div>
       </section>
-      <!-- ====== End ====== -->
+      <!-- ====== HERO BANNER ====== -->
     </div>
 
     <!-- ====== FOOTER ====== -->
@@ -767,14 +729,6 @@
         <i class="fa-regular fa-heart text-blue-500"></i>
       </div>
     </footer>
-
-    <!-- Go to Top Button -->
-    <button
-      id="goToTopBtn"
-      class="fixed bottom-8 right-8 z-50 bg-blue-600 text-white w-14 h-14 rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center opacity-0 invisible translate-y-4"
-    >
-      <i class="fas fa-arrow-up text-xl"></i>
-    </button>
 
     <!-- ====== JAVASCRIPT ====== -->
     <script src="./js/script.js"></script>
