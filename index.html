@@ -218,61 +218,109 @@
           />
         </div>
       </section>
-      <!-- ====== HERO BANNER ====== -->
+      <!-- ====== HERO BANNER End====== -->
       <div class="max-w-7xl mx-auto px-4 py-10">
         <!-- Journey Section -->
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold mb-8">Your Journey with StuLinked</h2>
+  <h2 class="text-3xl font-bold mb-8">Your Journey with StuLinked</h2>
 
-          <div
-            class="relative flex justify-between items-center max-w-6xl mx-auto"
-          >
-            <!-- Line -->
-            <div
-              class="absolute top-4 left-9 w-10/12 md:w-11/12 h-0.5 bg-gray-300"
-            ></div>
+  <div class="relative flex justify-between items-center max-w-6xl mx-auto" id="stepsContainer">
+    <!-- Dynamic Line -->
+    <div class="absolute top-4 left-9 w-10/12 md:w-11/12 h-0.5 bg-gray-300" id="progressLine">
+      <div class="h-full bg-blue-600 transition-all duration-500" id="progressFill" style="width: 0%;"></div>
+    </div>
 
-            <!-- Step 1 -->
-            <div class="relative z-10 flex flex-col items-center">
-              <div
-                class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-semibold"
-              >
-                1
-              </div>
-              <p class="mt-2 text-sm font-medium">Your Journey</p>
-            </div>
+    <!-- Step 1 -->
+    <div class="relative z-10 flex flex-col items-center cursor-pointer group step" data-step="0" onclick="setActiveStep(0)">
+      <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-semibold transition-all duration-300 step-circle">
+        1
+      </div>
+      <p class="mt-2 text-sm font-medium text-blue-600 transition-all duration-300 step-text">Your Journey</p>
+    </div>
 
-            <!-- Step 2 -->
-            <div class="relative z-10 flex flex-col items-center">
-              <div
-                class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold"
-              >
-                2
-              </div>
-              <p class="mt-2 text-sm font-medium">Success Stories</p>
-            </div>
+    <!-- Step 2 -->
+    <div class="relative z-10 flex flex-col items-center cursor-pointer group step" data-step="1" onclick="setActiveStep(1)">
+      <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold transition-all duration-300 step-circle">
+        2
+      </div>
+      <p class="mt-2 text-sm font-medium text-gray-500 transition-all duration-300 step-text">Success Stories</p>
+    </div>
 
-            <!-- Step 3 -->
-            <div class="relative z-10 flex flex-col items-center">
-              <div
-                class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold"
-              >
-                3
-              </div>
-              <p class="mt-2 text-sm font-medium">Student Resource Hub</p>
-            </div>
+    <!-- Step 3 -->
+    <div class="relative z-10 flex flex-col items-center cursor-pointer group step" data-step="2" onclick="setActiveStep(2)">
+      <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold transition-all duration-300 step-circle">
+        3
+      </div>
+      <p class="mt-2 text-sm font-medium text-gray-500 transition-all duration-300 step-text">Student Resource Hub</p>
+    </div>
 
-            <!-- Step 4 -->
-            <div class="relative z-10 flex flex-col items-center">
-              <div
-                class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold"
-              >
-                4
-              </div>
-              <p class="mt-2 text-sm font-medium">About Contact</p>
-            </div>
-          </div>
-        </div>
+    <!-- Step 4 -->
+    <div class="relative z-10 flex flex-col items-center cursor-pointer group step" data-step="3" onclick="setActiveStep(3)">
+      <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold transition-all duration-300 step-circle">
+        4
+      </div>
+      <p class="mt-2 text-sm font-medium text-gray-500 transition-all duration-300 step-text">About Contact</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  let activeStep = 0;
+  const totalSteps = 4;
+
+  function setActiveStep(stepIndex) {
+    activeStep = stepIndex;
+    
+    // Get all steps
+    const steps = document.querySelectorAll('.step');
+    const circles = document.querySelectorAll('.step-circle');
+    const texts = document.querySelectorAll('.step-text');
+    const progressFill = document.getElementById('progressFill');
+    
+    // Update each step
+    steps.forEach((step, index) => {
+      const circle = circles[index];
+      const text = texts[index];
+      
+      if (index <= activeStep) {
+        // Active or completed steps
+        circle.className = 'w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-semibold transition-all duration-300 step-circle';
+        text.className = 'mt-2 text-sm font-medium text-blue-600 transition-all duration-300 step-text';
+        
+        // Add scale animation to circle
+        if (index === activeStep) {
+          circle.style.transform = 'scale(1.15)';
+          setTimeout(() => {
+            circle.style.transform = 'scale(1)';
+          }, 300);
+        }
+      } else {
+        // Inactive steps
+        circle.className = 'w-8 h-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-sm font-semibold transition-all duration-300 step-circle';
+        text.className = 'mt-2 text-sm font-medium text-gray-500 transition-all duration-300 step-text';
+      }
+    });
+    
+    // Update progress line
+    const progressPercentage = (activeStep / (totalSteps - 1)) * 100;
+    progressFill.style.width = progressPercentage + '%';
+    
+    // You can add your navigation logic here
+    console.log('Active Step:', activeStep + 1);
+  }
+
+  // Optional: Keyboard navigation
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' && activeStep < totalSteps - 1) {
+      setActiveStep(activeStep + 1);
+    } else if (e.key === 'ArrowLeft' && activeStep > 0) {
+      setActiveStep(activeStep - 1);
+    }
+  });
+
+  // Initialize first step as active
+  setActiveStep(0);
+</script>
 
         <!-- Value First Section -->
         <div>
