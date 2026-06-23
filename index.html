@@ -22,7 +22,7 @@
     <div class="container max-w-7xl mx-auto">
       <!-- ====== NAVBAR ====== -->
       <nav
-        class="navbar shadow-sm flex flex-wrap items-center justify-between p-4 sm:px-6 transition-shadow hover:shadow-md"
+        class="navbar sticky top-0  bg-[#fff] shadow-sm flex flex-wrap items-center justify-between p-4 sm:px-6 transition-shadow hover:shadow-md"
       >
         <!-- logo -->
         <div class="flex items-center gap-2">
@@ -764,6 +764,36 @@
     </footer>
 
     <!-- ====== JAVASCRIPT ====== -->
+      
+
+  <!-- Go to Top Button -->
+  <button 
+    id="goToTopBtn" 
+    class="fixed bottom-8 right-8 z-50 bg-blue-600 text-white w-14 h-14 rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center opacity-0 invisible translate-y-4"
+  >
+    <i class="fas fa-arrow-up text-xl"></i>
+  </button>
+
+  <script>
+    const goToTopBtn = document.getElementById('goToTopBtn');
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        goToTopBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+        goToTopBtn.classList.add('opacity-100', 'visible', 'translate-y-0');
+      } else {
+        goToTopBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
+        goToTopBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
+      }
+    });
+
+    goToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
     <script src="./js/script.js"></script>
   </body>
 </html>
