@@ -66,3 +66,22 @@
           }
         });
       })();
+
+      const goToTopBtn = document.getElementById('goToTopBtn');
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        goToTopBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+        goToTopBtn.classList.add('opacity-100', 'visible', 'translate-y-0');
+      } else {
+        goToTopBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
+        goToTopBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
+      }
+    });
+
+    goToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
